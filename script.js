@@ -35,7 +35,7 @@ function checkPhone(){
 }
 
 function checkZip(){
-  let zip = document.forms['myForm']['zip];
+  let zip = document.forms['myForm']['zip'];
   const regex = new RegExp(/^\d{5}(?:[-\s]\d{4})?$/);
   if(regex.test(zip.value){
     zip.setCustomValidity("");
