@@ -33,3 +33,17 @@ function checkPhone(){
     phoneInput.setCustomValidity("Please enter a valid phone number");
   }
 }
+
+function checkZip(){
+  let zip = document.forms['myForm']['zip];
+  const regex = new RegExp(/^\d{5}(?:[-\s]\d{4})?$/);
+  if(regex.test(zip.value){
+    zip.setCustomValidity("");
+    console.log(zip.value);
+    return true;
+  }
+  else{
+    console.log(zip.value);
+    zip.setCustomValidity("Please enter a valid zip code");
+    return false;
+}
