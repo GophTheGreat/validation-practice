@@ -46,4 +46,5 @@ function checkZip(){
     console.log(zip.value);
     zip.setCustomValidity("Please enter a valid zip code");
     return false;
+  }
 }
