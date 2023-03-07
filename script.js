@@ -37,7 +37,7 @@ function checkPhone(){
 function checkZip(){
   let zip = document.forms['myForm']['zip'];
   const regex = new RegExp(/^\d{5}(?:[-\s]\d{4})?$/);
-  if(regex.test(zip.value){
+  if(regex.test(zip.value)){
     zip.setCustomValidity("");
     console.log(zip.value);
     return true;
@@ -48,3 +48,42 @@ function checkZip(){
     return false;
   }
 }
+
+function checkPassword(){
+  let pass1 = document.forms['myForm']['pass1'];
+  let pass2 = document.forms['myForm']['pass2'];
+
+  const regex = new RegExp(/(.){8,}\w+/);
+
+  if(regex.test(pass1.value) && pass1.value === pass2.value){
+    pass1.setCustomValidity("");
+    pass2.setCustomValidity("");
+    console.log(pass1.value);
+    return true;
+  }
+  else if(pass1.value != pass2.value){
+    pass1.setCustomValidity("Passwords must match");
+    pass2.setCustomValidity("Passwords must match");
+    console.log("Passwords must match");
+    console.log(`Pass1 = ${pass1.value}`);
+    console.log(`Pass2 = ${pass2.value}`);
+    return false;
+  }
+  else{
+    pass1.setCustomValidity("Please enter a valid password of at least 8 characters");
+    pass2.setCustomValidity("Please enter a valid password of at least 8 characters");
+    console.log("Password too short");
+    console.log(`Pass1 = ${pass1.value}`);
+    console.log(`Pass2 = ${pass2.value}`);
+    return false;
+  }
+}
+
+function checkAll(){
+  checkEmail();
+  checkPhone();
+  checkZip();
+  checkPassword();
+}
+
+checkAll()
